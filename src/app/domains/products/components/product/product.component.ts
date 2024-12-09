@@ -10,9 +10,9 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  @Input() img: string = '';
-  @Input() title: string = '';
-  @Input() price: number = 0;
+  @Input({ required: true }) img: string = '';
+  @Input({ required: true }) title: string = '';
+  @Input({ required: true }) price: number = 0;
 
 
   @Output() addToCart = new EventEmitter();

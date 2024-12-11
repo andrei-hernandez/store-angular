@@ -1,0 +1,15 @@
+<div class="px-10">
+  <h1 class="text-xl font-bold">About Us</h1>
+  <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+  <p>
+    <span>
+      Numero de clientes:
+    </span>
+    @if (duration() > 0) {
+      <app-counter [duration]="duration()" [message]="message()" />
+    }
+  </p>
+  <div class="pt-4">
+    <app-wave-audio audioUrl="assets/demo-audio.mp3" />
+  </div>
+</div>

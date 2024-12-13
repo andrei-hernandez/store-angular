@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -10,14 +11,10 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  @Input({ required: true }) img: string = '';
-  @Input({ required: true }) title: string = '';
-  @Input({ required: true }) price: number = 0;
-
-
+  @Input({ required: true }) product!: Product;
   @Output() addToCart = new EventEmitter();
 
-  addToCartHandler(product: { title: string, price: number }) {
-    this.addToCart.emit(`Product added to cart: ${product.title} $${product.price}`);
+  addToCartHandler() {
+    this.addToCart.emit(this.product);
   }
 }

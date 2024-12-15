@@ -1,5 +1,5 @@
-import { Component, Input, signal } from '@angular/core';
-import { Product } from '../../models/product.model';
+import { Component, inject, signal } from '@angular/core';
+import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,9 @@ import { Product } from '../../models/product.model';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  @Input({ required: true }) cart: Product[] = [];
+  private cartService = inject(CartService);
+  cart = this.cartService.cart;
+  cartTotal = this.cartService.cartTotal;
 
   hideSideMenu = signal<boolean>(true);
 

@@ -1,11 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
-import { Product } from '../../../shared/models/product.model';
+import { CurrencyPipe, NgOptimizedImage, UpperCasePipe } from '@angular/common';
+import { Product } from '@shared/models/product.model';
+import { ReversePipe } from '@shared/pipes/reverse.pipe';
+import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
+import { HighlightDirective } from '@shared/directives/highlight.directive';
 
 @Component({
   selector: 'app-product',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    CurrencyPipe,
+    TimeAgoPipe,
+    ReversePipe,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
